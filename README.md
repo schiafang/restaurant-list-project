@@ -15,7 +15,7 @@
 - [x] you can create new restaurant to list
 - [x] edit your restaurant list
 - [x] delete data
-- [x] midify search system
+- [x] modify search system
 - [x] confirm window tip when delete restaurant
 <br></br>
 

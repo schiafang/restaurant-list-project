@@ -40,7 +40,8 @@ app.get('/:id/edit', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
     .lean()
-    .then(restaurant => res.render('edit', restaurant))
+    .then(restaurant => { res.render('edit', restaurant) }
+    )
     .catch(error => console.log(error))
 })
 
