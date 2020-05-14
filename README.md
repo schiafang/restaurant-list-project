@@ -15,19 +15,23 @@
 - [x] you can create new restaurant to list
 - [x] edit your restaurant list
 - [x] delete data
+- [x] midify search system
+- [x] confirm window tip when delete restaurant
 <br></br>
 
 ### Unfinished list
-- [ ] 刪除餐廳跳出確認提示
-- [ ] 搜尋系統更新
+- [ ] 重構
 - [ ] 頁面優化
 - [ ] 登入系統
+<br></br>
+
+![navbar](https://i.imgur.com/Ll9qMyh.png)
+
+![index](https://i.imgur.com/WG6qcW7.png)
 
 <br></br>
-![navbar](https://i.imgur.com/c31asDR.png)
 
-![index](https://i.imgur.com/X0y3gSw.png)
-
+![showpage](https://i.imgur.com/UqtTttT.png)
 
 #### The restaurant information contain below :
 1. Rating
@@ -39,9 +43,10 @@
 <br>
 
    
-![showpage](https://i.imgur.com/1xTizAv.png)
+![form](https://i.imgur.com/lKUZI3B.png)
 
-![form](https://i.imgur.com/dVNzwfb.png)
+![notfound](https://i.imgur.com/vk0wkXt.png)
+
 
 <br>
 
@@ -53,9 +58,9 @@
 
 ## Installation
 
-[Download](https://github.com/schiafang/restaurant-list/archive/master.zip) or clone repository to your local computer.
+[Download](https://github.com/schiafang/restaurant-list-project/archive/master.zip) or clone repository to your local computer.
 ```
-$ git clone https://github.com/schiafang/restaurant-list.git
+$ git clone https://github.com/schiafang/restaurant-list-project.git
 ```
 Install express
 ```
@@ -64,13 +69,12 @@ $ npm i express
 
 Require seeder
 ```
-$ npm run seeder
+$ npm run seed
 ```
 
 Execute
 ```
-$ npm run dev 
-or $ npm start
+$ npm run dev (or $ npm start)
 ```
 
 `The server listening on localhost:3000` will show on terminal when server connect success.
