@@ -21,3 +21,6 @@ if (pathname === '/create') {
   })
 }
 
+if (pathname.includes('/delete')) {
+  // window.confirm('確定要更新嗎')
+}
