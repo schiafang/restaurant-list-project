@@ -12,7 +12,6 @@
     </form>
   </div>
 </div>
-
 <!-- restaurant list -->
 <div class="container mt-5">
   <div class="row">
@@ -36,11 +35,9 @@
         <div class="card-footer">
           <form action="/{{ this._id }}/edit" method="GET">
             <button type="submit" class="edit-btn"><i class="far fa-edit"></i></button></form>
-          <form action="/{{ this._id }}/delete" method="POST">
-            <button type="submit" class="edit-btn delete-btn" id="delete-btn" onClick="confirm('確定要刪除嗎')"><i
-                class="far fa-trash-alt"></i></button>
+          <form action="/{{ this._id }}/delete" method="POST" onsubmit="return deleteConfirm()">
+            <button type="submit" class="edit-btn delete-btn" id="delete-btn"><i class="far fa-trash-alt"></i></button>
           </form>
-
         </div>
       </div>
       {{/each}}
