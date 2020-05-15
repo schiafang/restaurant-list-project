@@ -1,28 +1,23 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
-const mongoose = require('mongoose')
 const Restaurant = require('./models/restaurant')
+require('./config/mongoose')
 
 const app = express()
 const port = 3000
-const db = mongoose.connection
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 app.use(express.static('public'))
 app.use((bodyParser.urlencoded({ extended: true })))
-
 app.listen(port, () => console.log(`The server listening on localhost:${port}`))
-
-mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true })
-db.on('error', () => console.log('MongoDB error!'))
-db.once('open', () => console.log('MongoDB connected!'))
 
 // ----- Read (render) -----//
 app.get('/', (req, res) => {
   Restaurant.find()
     .lean()
+    .sort({ _id: 'asc' })
     .then(restaurant => res.render('index', { restaurant }))
     .catch(error => console.eroor(error))
 })
@@ -54,6 +49,7 @@ app.get('/search', (req, res) => {
     ]
   })
     .lean()
+    .sort({ _id: 'asc' })
     .then(restaurant => {
       if (restaurant.length === 0) { res.render('notfound') }
       else { res.render('index', { restaurant }) }
