@@ -1,6 +1,7 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
 const Restaurant = require('./models/restaurant')
 require('./config/mongoose')
 
@@ -11,6 +12,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 app.use(express.static('public'))
 app.use((bodyParser.urlencoded({ extended: true })))
+app.use(methodOverride('_method'))
 app.listen(port, () => console.log(`The server listening on localhost:${port}`))
 
 // ----- Read (render) -----//
@@ -22,25 +24,11 @@ app.get('/', (req, res) => {
     .catch(error => console.eroor(error))
 })
 
-app.get('/restaurants/:id', (req, res) => {
-  const id = req.params.id
-  return Restaurant.findById(id)
-    .lean()
-    .then(restaurant => res.render('show', { restaurant }))
+app.get('/restaurants/create', (req, res) => {
+  res.render('create')
 })
 
-app.get('/create', (req, res) => res.render('create'))
-
-app.get('/:id/edit', (req, res) => {
-  const id = req.params.id
-  return Restaurant.findById(id)
-    .lean()
-    .then(restaurant => { res.render('edit', restaurant) }
-    )
-    .catch(error => console.log(error))
-})
-
-app.get('/search', (req, res) => {
+app.get('/restaurants/search', (req, res) => {
   const keyword = req.query.keyword.toLowerCase().trim()
   return Restaurant.find({
     $or: [
@@ -56,8 +44,25 @@ app.get('/search', (req, res) => {
     })
 })
 
+app.get('/restaurants/:id', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .lean()
+    .then(restaurant => res.render('show', { restaurant }))
+})
+
+app.get('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .lean()
+    .then(restaurant => { res.render('edit', restaurant) }
+    )
+    .catch(error => console.log(error))
+})
+
+
 // ----- Create (create) ----- //
-app.post('/create/new', (req, res) => {
+app.post('/restaurants', (req, res) => {
   if (req.body.image.length === 0) { req.body.image = 'https://www.teknozeka.com/wp-content/uploads/2020/03/wp-header-logo-33.png' }
   if (req.body.category === '選擇餐廳類型') { req.body.category = '未分類' }
   const restaurant = req.body
@@ -67,7 +72,7 @@ app.post('/create/new', (req, res) => {
 })
 
 // ----- Upadte (save) ----- //
-app.post('/:id/edit/update', (req, res) => {
+app.put('/restaurants/:id', (req, res) => {
   const id = req.params.id
   const { name, category, image, location, phone, rating, google_map, description } = req.body
   return Restaurant.findById(id)
@@ -87,7 +92,7 @@ app.post('/:id/edit/update', (req, res) => {
 })
 
 // ----- Delete (remove) ----- //
-app.post('/:id/delete', (req, res) => {
+app.delete('/restaurants/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
     .then(restaurant => restaurant.remove())

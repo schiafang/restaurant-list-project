@@ -14,7 +14,7 @@ if (pathname === '/search') {
   })
 }
 
-if (pathname === '/create') {
+if (pathname === '/restaurants/create') {
   window.addEventListener('load', () => {
     const createForm = document.querySelector('.create-form')
     createForm.scrollIntoView({ behavior: 'smooth' })
