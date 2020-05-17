@@ -1,4 +1,3 @@
-<!-- sort -->
 <div class="container">
   <div class="row justify-content-end">
     <div class="sort-box">
@@ -15,13 +14,12 @@
     </div>
   </div>
 </div>
-<!-- restaurant list -->
 <div class="container">
   <div class="row">
     {{#each restaurant}}
-    <div class="col-12 col-md-4 col-lg-3 mb-4">
+    <div class="col-sm-12 col-md-4 col-lg-3 mb-4 ">
       <a href="/restaurants/{{this._id}}" class="text-secondary">
-        <div class="card card-group">
+        <div class="card">
           <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
           <div class="card-body">
             <h6 class="card-title">{{this.name}}</h6>
@@ -39,6 +37,13 @@
           </div>
         </div>
       </a>
+      <div class="card-footer">
+        <form action="/restaurants/{{ this._id }}/edit" method="GET">
+          <button type="submit" class="edit-btn"><i class="far fa-edit"></i></button></form>
+        <form action="/restaurants/{{ this._id }}/?_method=DELETE" method="POST" onsubmit="return deleteConfirm()">
+          <button type="submit" class="edit-btn delete-btn" id="delete-btn"><i class="far fa-trash-alt"></i></button>
+        </form>
+      </div>
     </div>
     {{/each}}
   </div>

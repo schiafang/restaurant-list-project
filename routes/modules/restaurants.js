@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const Restaurant = require('../../models/restaurant')
+// const methodOverride = require('method-override')
+// router.use(methodOverride('_method'))
 
 // ----- Read (render) -----//
 router.get('/create', (req, res) => {
@@ -8,19 +10,40 @@ router.get('/create', (req, res) => {
 })
 
 router.get('/search', (req, res) => {
-  const keyword = req.query.keyword.toLowerCase().trim()
-  return Restaurant.find({
-    $or: [
-      { name: { $regex: keyword, $options: 'i' } },
-      { category: { $regex: keyword } }
-    ]
-  })
+  const keyword = req.query.keyword.trim()
+  return Restaurant.find(
+    {
+      $or: [
+        { name: { $regex: keyword, $options: 'i' } },
+        { category: { $regex: keyword } }
+      ]
+    }
+  )
     .lean()
-    .sort({ _id: 'asc' })
     .then(restaurant => {
       if (restaurant.length === 0) { res.render('notfound') }
       else { res.render('index', { restaurant }) }
     })
+})
+
+router.get('/sort/:by/:order', (req, res) => {
+  const by = req.params.by
+  const order = req.params.order
+  Restaurant.find()
+    .lean()
+    .sort({ [by]: [order] })
+    .then(restaurant => {
+      res.render('index', { restaurant })
+    })
+    .catch(error => console.log(error))
+})
+
+router.get('/edit', (req, res) => {
+  Restaurant.find()
+    .lean()
+    .sort({ _id: 'desc' })
+    .then(restaurant => res.render('indexedit', { restaurant }))
+    .catch(error => console.eroor(error))
 })
 
 router.get('/:id', (req, res) => {
@@ -52,17 +75,10 @@ router.post('/', (req, res) => {
 // ----- Upadte (save) ----- //
 router.put('/:id', (req, res) => {
   const id = req.params.id
-  const { name, category, image, location, phone, rating, google_map, description } = req.body
   return Restaurant.findById(id)
     .then(restaurant => {
-      restaurant.name = name
-      restaurant.category = category
-      restaurant.image = image
-      restaurant.location = location
-      restaurant.phone = phone
-      restaurant.rating = rating
-      restaurant.google_map = google_map
-      restaurant.description = description
+      // Object.assign(target, source)
+      restaurant = Object.assign(restaurant, req.body)
       return restaurant.save()
     })
     .then(() => res.redirect(`/restaurants/${id}`))

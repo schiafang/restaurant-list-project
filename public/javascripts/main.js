@@ -1,16 +1,23 @@
 const pathname = window.location.pathname
 
-if (pathname === '/search') {
+if (pathname === '/restaurants/search') {
   window.addEventListener('load', () => {
-    const cardColumns = document.querySelector('.card-columns')
-    cardColumns.scrollIntoView({ behavior: 'smooth' })
+    const card = document.querySelector('.card')
+    card.scrollIntoView({ behavior: 'smooth' })
   })
 }
 
-if (pathname === '/search') {
+if (pathname === '/restaurants/search') {
   window.addEventListener('load', () => {
     const notFound = document.querySelector('.notfound')
     notFound.scrollIntoView({ behavior: 'smooth' })
+  })
+}
+
+if (pathname === '/restaurants/edit') {
+  window.addEventListener('load', () => {
+    const card = document.querySelector('.sort-box')
+    card.scrollIntoView({ behavior: 'smooth' })
   })
 }
 
@@ -24,3 +31,4 @@ if (pathname === '/restaurants/create') {
 function deleteConfirm () {
   return window.confirm('確定要刪除嗎？')
 }
+

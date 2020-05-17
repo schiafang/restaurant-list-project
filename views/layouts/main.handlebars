@@ -11,18 +11,38 @@
     rel="stylesheet">
   <title>My Restaurant List</title>
   <!-- navigation -->
-  <nav class="navbar navbar-light" style="background-color:#32333A">
+  <nav class="navbar navbar-light fixed-top">
     <div class="container">
+      <!-- navbar-brand-->
       <a class="navbar-brand" href="/">
         <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png"
           width="30" height="30" class="d-inline-block align-top mr-2" alt="my-restaurant list">
         My Restaurant List
       </a>
-      <div>
-        <a href="/restaurants/create">
-          <button class="edit-btn" type="button"><i class="mr-1 fas fa-plus"></i>新增餐廳
-          </button>
-        </a>
+      <!-- search and create-->
+      <div class="row justify-content-end align-items-center">
+        <div class="search-bar">
+          <form action="/restaurants/search" method="GET" class="form-inline">
+            <div class="input-group">
+              <input type="text" name="keyword" class="form-control search-input" placeholder="搜尋餐廳、分類"
+                aria-label="search" value="{{keyword}}" aria-describedby="search-button">
+              <div class="input-group-append">
+                <button class="btn search-button" type="submit"><i class="fas fa-search"
+                    style="color: rgba(255,255,255,0.5)"></i></button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div>
+          <a href="/restaurants/create">
+            <button class="create-page-btn mr-2" type="button"><i class="mr-2 fas fa-plus"></i>新增餐廳
+            </button>
+          </a>
+          <a href="/restaurants/edit">
+            <button class="edit-page-btn" type="button"><i class=" mr-2 fas fa-pen"></i>編輯管理
+            </button>
+          </a>
+        </div>
       </div>
     </div>
   </nav>
@@ -36,20 +56,19 @@
   <footer>
     <div class="footer text-center py-3 pb-2 align-item-center">
       <div class="row align-items-center  justify-content-center" style="width: 100%;">
-        <div class="col-4">
+        <div class="col-md-4">
         </div>
-        <div class="col-2">
-          <a class="ml-2" href="https://github.com/schiafang"><img src="https://i.imgur.com/frLUCiN.png"
-              style="opacity: 80%;"></a>
+        <div class="col-md-2 git-link">
+          <a href="https://github.com/schiafang"><img src="https://i.imgur.com/frLUCiN.png" style="opacity: 80%;"></a>
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
           <a href="https://github.com/schiafang/restaurant-list-project" class="mr-4"
             style="color: rgb(148, 148, 148);">
             My Restaurant List project</a>
           <span> 2020 </span>
           <a href="https://tw.alphacamp.co/" class="ml-1" style="font-weight:500; color: #C03D3D;"> Alpha Camp</a>
         </div>
-        <div class="col-3">
+        <div class="col-md-4">
         </div>
       </div>
     </div>

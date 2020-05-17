@@ -1,74 +1,110 @@
+/* --- Main --- */
 header {
   overflow: hidden;
 }
-
+.navbar {
+  background-color: #32333A;
+}
 .navbar .navbar-brand {
   color: #4592af;
   font-family: 'Ubuntu', sans-serif; 
 }
-
 .navbar .navbar-brand:hover {
   color: #226089;
 }
-
+.search-bar {
+  margin-right: 20px;
+  border-radius: 2px;
+}
+.search-input, .search-button {
+  background-color: rgba(255,255,255,0.1); 
+  border:none;
+}
+.create-page-btn, .edit-page-btn {
+  color: #969595;
+  background-color: transparent;
+  border: none;
+  font-size: 15px;
+}
+.footer {
+  margin-top: 100px;
+  height: 100px;
+  position: relative;
+  background-color: rgb(231, 231, 232);
+  color: #3a839e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.create-page-btn, .edit-page-btn:hover{
+  cursor: pointer;
+}
 .banner {
   position: relative;
   z-index: -1;
   margin: -5px;
-  height: 450px;
-   background: #dddddd url('https://images.unsplash.com/photo-1505826759037-406b40feb4cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80');
+  height: 480px;
+  background: url('https://images.unsplash.com/photo-1477763858572-cda7deaa9bc5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=976&q=80');
   background-size: cover;
-  background-position: 0px 80%;
+  background-position: 0px 85%;
   filter: blur(1px);
 }
 
-.search-bar-inner {
-  max-width: 680px;
-  color: #9b4b4b;
-  margin: 0 auto;
-  border-radius: 2px;
-  margin-bottom: -10px;
-  border: 0;
-  margin-top: 50px;
+/* --- Index page --- */
+.sort-box {
+  width: 120px;
+  margin: 30px 20px 30px 0px;
 }
-
-.form-control::placeholder {
-  color: #aaaaaa;
-  font-size: 0.8rem;
+.sort-dropdown{
+  box-shadow: 2px 2px 2px rgb(237, 237, 237);
+  background-color: rgb(250, 250, 250, 0.7);
+  width: 120px;
+  text-align: center;
+  border-radius: 3px;
+  color: #8f8a8a;
 }
-
-.btn-major {
-  background-color: #9b4b4b;
-  color: white;
+.dropdown-menu {
+  border: none;
+  opacity: 90%;
 }
-
-.form-control:focus {
-  box-shadow: none;
-  border-color: #ced4da;
-}
-
 .card {
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+  border: none;
 }
-
-.card img{
-  height: 180px;
+.card-img-top {
+  height: 280px;
+  vertical-align: middle;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-
 .card-title{
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
+  overflow: hidden;
+  width: 160px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 400;
 }
-
-.restaurant-category {
+.card-category {
   color: #666666;
   font-size: 0.8rem;
 }
+.card-footer {
+  height: 30px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+}
+.edit-btn:hover {
+ cursor: pointer;
+}
+.git-link{
+  margin-bottom: 10px;
+}
 
+/* --- Show page --- */
 .restaurant-show-title {
   position: relative;
   top: -100px;
@@ -78,43 +114,23 @@ header {
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   font-family: 'Noto Serif TC', serif;
 }
-
-
-@media screen and (max-width: 992px) {
-  
-  .card img{
-    height: 115px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  
-  .restaurant-show-title {
-    font-size: 2rem;
-  }
-}
-
-@media screen and (max-width: 575px) {
-  
-  .card img{
-    height: auto;
-  }
-}
-
-.card-footer {
-  height: 30px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  border: none;
-}
 .edit-btn {
   color: #969595;
   background-color: transparent;
   border: none;
 }
-.edit-btn:hover {
- cursor: pointer;
+
+/* create and update page */
+.form-control {
+  border: none;
+}
+.form-control::placeholder {
+  color: #aaaaaa;
+  font-size: 0.8rem;
+}
+.form-control:focus {
+  box-shadow: none;
+  border-color: #ced4da;
 }
 .create-form {
   margin-top: 40px;
@@ -127,13 +143,24 @@ header {
   width: 600px;
   height: 750px;
 }
-.footer {
-  margin-top: 100px;
-  height: 100px;
-  position: relative;
-  background-color: rgb(231, 231, 232);
-  color: #3a839e;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+@media (min-width: 576px) {
+  .card-img-top {
+    height: 280px;
+  }
+}
+@media (min-width: 768px) {
+  .card-img-top {
+    height: 150px;
+  }
+}
+@media (max-width: 768px) {
+  .restaurant-show-title {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 992px) {
+  .card-img-top {
+    height: 180px;
+  }
 }

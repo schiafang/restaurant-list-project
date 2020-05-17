@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="create-form">
-      <form action="/restaurants/{{this._id}}?_method=PUT" method="POST">
+      <form action="/restaurants/{{this._id}}?_method=PUT" method="POST" id="edit-form">
         <div class="form-row justify-content-center">
           <div class="form-group col-md-6">
             <label for="name">Restaurant Name</label>
@@ -35,7 +35,8 @@
           </div>
           <div class="form-group col-md-4">
             <label for="rating">Rating</label>
-            <input type="text" class="form-control" id="rating" name="rating" value="{{this.rating}}" placeholder="評分">
+            <input type="number" step="0.1" class="form-control" id="rating" name="rating" value="{{this.rating}}"
+              placeholder="評分">
           </div>
           <div class="form-group col-10">
             <label for="image">Image</label>
@@ -53,7 +54,7 @@
               name="description">{{this.description}}</textarea>
           </div>
           <div class="form-group col-md-10 justify-content-start" style="margin-top: 10px;">
-            <button type="submit" class="btn btn-info">Update</button>
+            <button type="submit" class="btn btn-info" form="edit-form">Update</button>
             <a href="/restaurants/{{this._id}}">
               <button type="button" class="btn btn-success ml-3">Detail</button>
             </a>

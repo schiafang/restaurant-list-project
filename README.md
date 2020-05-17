@@ -1,6 +1,6 @@
 # Ｍy Restaurant List! 
 ### Add your favorite restaurants
-#### Use database manage list, you can create and update restaurant now!
+#### You can create and update restaurant list now!
 
 
 ## **Features**
@@ -17,21 +17,17 @@
 - [x] delete data
 - [x] modify search system
 - [x] confirm window tip when delete restaurant
+- [x] sort by name, date or rating
 <br></br>
-
-### Unfinished list
-- [ ] 重構
-- [ ] 頁面優化
-- [ ] 登入系統
-<br></br>
-
-![navbar](https://i.imgur.com/Ll9qMyh.png)
-
-![index](https://i.imgur.com/WG6qcW7.png)
 
 <br></br>
 
-![showpage](https://i.imgur.com/UqtTttT.png)
+![navbar](https://i.imgur.com/NSC1hFf.png)
+![index](https://i.imgur.com/MuhDpep.png)
+
+<br></br>
+
+![showpage](https://i.imgur.com/h6pw1hj.png)
 
 #### The restaurant information contain below :
 1. Rating
@@ -44,8 +40,6 @@
 
    
 ![form](https://i.imgur.com/lKUZI3B.png)
-
-![notfound](https://i.imgur.com/vk0wkXt.png)
 
 
 <br>
@@ -69,17 +63,19 @@ $ npm i express
 
 Require seeder
 ```
-$ npm run seed
+$ npm run seed ( ^C exit)
 ```
 
 Execute
 ```
-$ npm run dev (or $ npm start)
+$ npm start
 ```
 
-`The server listening on localhost:3000` will show on terminal when server connect success.
+`The server listening on localhost:3000`, `MongoDB connected!`
 
-browse [http://localhost:3000](http://localhost:3000) 
+will show on terminal when server connect success.
+
+#### Browse [http://localhost:3000](http://localhost:3000) 
 
 
 <br>
