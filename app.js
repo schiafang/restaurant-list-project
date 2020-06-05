@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const route = require('./routes/index')
 const session = require('express-session')
+const usePassport = require('./config/passport')
 
 require('./config/mongoose')
 
@@ -21,6 +22,13 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }))
+usePassport(app)
+usePassport(app)
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.isAuthenticated() //回傳的布林值給 res 用
+  res.locals.user = req.user //將使用者資訊給 res
+  next()
+})
 app.use(route)
 
 app.listen(port, () => console.log(`The server listening on localhost:${port}`))

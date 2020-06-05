@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="login-form">
+      <div>
+        <p>註冊</p>
+      </div>
+      <form action="/users/register" method="POST" id="login-form">
+        <div class="form-group">
+          <label for="username"></label>
+          <input type="username" id="username" name="username" placeholder="username">
+        </div>
+        <div class="form-group">
+          <label for="email"></label>
+          <input type="email" id="email" name="email" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+          <label for="password"></label>
+          <input type="password" id="password" name="password" placeholder="password" required>
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword"></label>
+          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="confirm Password" required>
+        </div>
+        <button type="submit" class="btn btn-info btn-block">submit</button>
+      </form>
+      <div style="margin-top: 70px;">
+        <a href="/users/login">Sign in</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
