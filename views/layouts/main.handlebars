@@ -13,13 +13,13 @@
   <!-- navigation -->
   <nav class="navbar navbar-light fixed-top">
     <div class="container">
-      <!-- navbar-brand-->
       <a class="navbar-brand" href="/">
         <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png"
           width="30" height="30" class="d-inline-block align-top mr-2" alt="my-restaurant list">
         My Restaurant List
       </a>
-      <!-- search and create-->
+      <!-- login:search and create -->
+      {{#if isAuthenticated}}
       <div class="row justify-content-end align-items-center">
         <div class="search-bar">
           <form action="/restaurants/search" method="GET" class="form-inline">
@@ -39,11 +39,23 @@
             </button>
           </a>
           <a href="/restaurants/edit">
-            <button class="edit-page-btn" type="button"><i class=" mr-2 fas fa-pen"></i>編輯管理
+            <button class="edit-page-btn" type="button"><i class="mr-2 fas fa-pen"></i>編輯管理
+            </button>
+          </a>
+          <a href="/users/logout">
+            <button class="edit-page-btn" type="button"><i class="mr-2 fas fa-sign-out-alt"></i>登出
             </button>
           </a>
         </div>
       </div>
+      {{else}}
+      <div>
+        <a href="/users/login">
+          <button class="mt-1 edit-page-btn" type="button"><i class="mr-2 fas fa-sign-in-alt"></i>登入
+          </button>
+        </a>
+      </div>
+      {{/if}}
     </div>
   </nav>
   <div class="banner">
@@ -78,6 +90,7 @@
   <script src="/javascripts/popper.min.js"></script>
   <script src="/javascripts/bootstrap.js"></script>
   <script src="/javascripts/main.js"></script>
+  <script src="/images"></script>
 </body>
 
 </html>

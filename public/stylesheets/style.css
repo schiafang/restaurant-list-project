@@ -158,6 +158,20 @@ header {
   height: 750px;
 }
 
+/* login/out page */
+.login-form {
+  margin-top: 70px;
+  margin-bottom: 30px;
+  background-color: rgb(240, 240, 240);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 500px;
+}
+
 @media (min-width: 576px) {
   .card-img-top {
     height: 280px;
@@ -178,3 +192,7 @@ header {
     height: 180px;
   }
 }
+
+/* * {
+  border: 0.1px solid pink;
+} */

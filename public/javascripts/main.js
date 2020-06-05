@@ -28,6 +28,13 @@ if (pathname === '/restaurants/create') {
   })
 }
 
+if (pathname === '/users/login') {
+  window.addEventListener('load', () => {
+    const createForm = document.querySelector('.login-form')
+    createForm.scrollIntoView({ behavior: 'smooth' })
+  })
+}
+
 function deleteConfirm () {
   return window.confirm('確定要刪除嗎？')
 }

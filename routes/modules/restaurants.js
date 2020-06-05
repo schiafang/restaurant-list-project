@@ -1,8 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const Restaurant = require('../../models/restaurant')
-// const methodOverride = require('method-override')
-// router.use(methodOverride('_method'))
 
 // ----- Read (render) -----//
 router.get('/create', (req, res) => {

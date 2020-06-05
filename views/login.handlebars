@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="login-form">
+      <div>
+        <p>登入</p>
+      </div>
+      <form action="/users/login" method="POST" id="login-form">
+        <div>
+          <div class="form-group">
+            <label for="email"></label>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+          </div>
+          <div class="form-group">
+            <label for="password"></label>
+            <input type="password" id="password" name="password" placeholder="password" required>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-info btn-block">LOG IN</button>
+      </form>
+      <p class="mt-4">or login with Facebook</p>
+      <img src="/public/images/f_logo.png" alt="">
+      <a href="/facebook"><img src="/images/f_logo.png" alt="facebook" width="40px"></a>
+      <div style="margin-top: 70px;">
+        <a href="/users/register">Sign up</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
