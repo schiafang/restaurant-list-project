@@ -45,7 +45,7 @@ db.once('open', () => {
     })
     .then(user => {
       const _id = user._id
-      for (let i = 3; i < restaurantSeedData.length; i++) {
+      for (let i = 3; i < 6; i++) {
         Restaurant.create({
           name: restaurantSeedData[i].name,
           category: restaurantSeedData[i].category,

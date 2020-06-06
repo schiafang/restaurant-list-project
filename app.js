@@ -6,10 +6,14 @@ const route = require('./routes/index')
 const session = require('express-session')
 const usePassport = require('./config/passport')
 
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
+
 require('./config/mongoose')
 
 const app = express()
-const port = 3000
+const PORT = process.env.PORT
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
@@ -18,7 +22,7 @@ app.use((bodyParser.urlencoded({ extended: true })))
 app.use(methodOverride('_method'))
 
 app.use(session({
-  secret: 'ThisIsMySecret',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true
 }))
@@ -31,4 +35,4 @@ app.use((req, res, next) => {
 })
 app.use(route)
 
-app.listen(port, () => console.log(`The server listening on localhost:${port}`))
+app.listen(PORT, () => console.log(`The server listening on localhost:${PORT}`))
