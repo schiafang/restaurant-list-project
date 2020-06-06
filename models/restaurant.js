@@ -16,8 +16,8 @@ const restSchema = new Schema({
   userId: {
     type: Schema.Types.ObjectId,
     ref: 'User',
-    index: true,
-    required: true
+    index: true
+    // required: true
   }
 })
 module.exports = mongoose.model('Restaurant', restSchema)
