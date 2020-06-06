@@ -27,7 +27,6 @@ module.exports = app => {
     callbackURL: process.env.FACEBOOK_CALLBACK,
     profileFields: ['email', 'displayName']
   }, (accessToken, refreshToken, profile, done) => {
-    console.log(profile)
     const { name, email } = profile._json
     User.findOne({ email })
       .then(user => {

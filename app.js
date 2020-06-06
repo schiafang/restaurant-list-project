@@ -5,6 +5,7 @@ const methodOverride = require('method-override')
 const route = require('./routes/index')
 const session = require('express-session')
 const usePassport = require('./config/passport')
+const flash = require('connect-flash')
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
@@ -27,10 +28,12 @@ app.use(session({
   saveUninitialized: true
 }))
 usePassport(app)
-usePassport(app)
+app.use(flash())
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.isAuthenticated()
   res.locals.user = req.user
+  res.locals.warningMsg = req.flash('warningMsg')
+  res.locals.successMsg = req.flash('successMsg')
   next()
 })
 app.use(route)
