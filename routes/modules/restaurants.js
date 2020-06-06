@@ -53,7 +53,7 @@ router.get('/:id', (req, res) => {
     .lean()
     .then(restaurant => {
       restaurant = restaurant[0] //????
-      res.render('show', { restaurant })
+      res.render('detail', { restaurant })
     })
 })
 

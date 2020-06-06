@@ -25,8 +25,8 @@ app.use(session({
 usePassport(app)
 usePassport(app)
 app.use((req, res, next) => {
-  res.locals.isAuthenticated = req.isAuthenticated() //回傳的布林值給 res 用
-  res.locals.user = req.user //將使用者資訊給 res
+  res.locals.isAuthenticated = req.isAuthenticated()
+  res.locals.user = req.user
   next()
 })
 app.use(route)

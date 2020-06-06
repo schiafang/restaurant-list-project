@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const passport = require('passport')
 const User = require('../../models/user')
+const bcrypt = require('bcryptjs')
 
 router.get('/login', (req, res) => {
   res.render('login')
@@ -22,7 +23,6 @@ router.get('/logout', (req, res) => {
 // }))
 
 router.post('/login', function (req, res, next) {
-  // 在 routes 的 handler 中使用 passport.authenticate
   passport.authenticate('local', function (err, user, info) {
     if (err) {
       return next(err)
@@ -34,7 +34,6 @@ router.post('/login', function (req, res, next) {
     req.logIn(user, err => {
       if (err) return next(err)
       console.log('登入成功')
-      // console.log(req.session)
       return res.redirect('/')
     })
   })(req, res, next)
@@ -52,10 +51,14 @@ router.post('/register', (req, res) => {
         res.render('register', { username, email })
       } else {
         console.log(`${email}註冊成功`)
-        return User.create({ username, email, password })
+        return bcrypt
+          .genSalt(10)
+          .then(salt => bcrypt.hash(password, salt))
+          .then(hash => User.create({ username, email, password: hash }))
       }
     })
     .then(() => res.redirect('/users/login'))
     .catch(err => console.log(err))
 })
+
 module.exports = router
