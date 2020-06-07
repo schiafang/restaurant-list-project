@@ -31,7 +31,14 @@ if (pathname === '/restaurants/create') {
 if (pathname === '/users/login') {
   window.addEventListener('load', () => {
     const createForm = document.querySelector('.login-form')
-    createForm.scrollIntoView({ behavior: 'smooth' })
+    createForm.scrollIntoView({ behavior: 'auto' })
+  })
+}
+
+if (pathname === '/users/register') {
+  window.addEventListener('load', () => {
+    const createForm = document.querySelector('.login-form')
+    createForm.scrollIntoView({ behavior: 'auto' })
   })
 }
 

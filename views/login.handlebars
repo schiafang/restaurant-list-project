@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="login-form">
-      <div>
-        <p>登入</p>
+      <div class="mb-2">
+        <h5>登入</h5>
       </div>
-      <div>
+      <div class="mb-3" style="height: 50px;">
         {{> message}}
       </div>
       <form action="/users/login" method="POST" id="login-form">
@@ -20,11 +20,10 @@
         </div>
         <button type="submit" class="btn btn-info btn-block">LOG IN</button>
       </form>
-      <p class="mt-4">or login with Facebook</p>
-      <img src="/public/images/f_logo.png" alt="">
-      <a href="/auth/facebook"><img src="/images/f_logo.png" alt="facebook" width="40px"></a>
-      <div style="margin-top: 70px;">
-        <a href="/users/register">Sign up</a>
+      <p class="mt-4" style="color: rgb(100, 100, 100);">or login with Facebook</p>
+      <a class="mt-2 mb-3" href="/auth/facebook"><img src="/images/f_logo.png" alt="facebook" width="40px"></a>
+      <div class="mt-5">
+        <a href=" /users/register">Sign up</a>
       </div>
     </div>
   </div>

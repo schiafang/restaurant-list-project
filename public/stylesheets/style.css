@@ -169,7 +169,16 @@ header {
   justify-content: center;
   align-items: center;
   width: 400px;
-  height: 500px;
+  height: 550px;
+}
+.login-form input {
+  border: none;
+  line-height: 30px;
+  width: 250px;
+}
+.login-form ::placeholder{
+  color: rgb(188, 188, 188);
+  padding-left: 8px;
 }
 
 @media (min-width: 576px) {
@@ -192,7 +201,3 @@ header {
     height: 180px;
   }
 }
-
-/* * {
-  border: 0.1px solid pink;
-} */
