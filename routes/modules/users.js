@@ -14,29 +14,15 @@ router.get('/register', (req, res) => {
 
 router.get('/logout', (req, res) => {
   req.logout()
+  req.flash('successMsg', '成功登出')
   res.redirect('/users/login')
 })
 
-// router.post('/login', passport.authenticate('local', {
-//   successRedirect: '/',
-//   failureRedirect: '/users/login'
-// }))
-
-router.post('/login', function (req, res, next) {
-  passport.authenticate('local', function (err, user, info) {
-    if (err) {
-      return next(err)
-    }
-    if (!user) {
-      req.flash('warningMsg', '登入失敗，請檢查帳號密碼是否正確')
-      return res.redirect('/users/login')
-    }
-    req.logIn(user, err => {
-      if (err) return next(err)
-      return res.redirect('/')
-    })
-  })(req, res, next)
-})
+router.post('/login', passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/users/login',
+  failureFlash: true
+}))
 
 router.post('/register', (req, res) => {
   const { username, email, password, confirmPassword } = req.body

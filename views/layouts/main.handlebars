@@ -22,7 +22,7 @@
       <!-- login:search and create -->
       {{#if isAuthenticated}}
       <div class="row justify-content-end align-items-center">
-        <div class="search-bar">
+        <div class="search-bar mt-1">
           <form action="/restaurants/search" method="GET" class="form-inline">
             <div class="input-group">
               <input type="text" name="keyword" class="form-control search-input" placeholder="搜尋餐廳、分類"
@@ -36,15 +36,15 @@
         </div>
         <div>
           <a href="/restaurants/create">
-            <button class="create-page-btn mr-2" type="button"><i class="mr-2 fas fa-plus"></i>新增餐廳
+            <button class="mt-1 create-page-btn mr-2" type="button"><i class="mr-2 fas fa-plus"></i>新增餐廳
             </button>
           </a>
           <a href="/restaurants/edit">
-            <button class="edit-page-btn" type="button"><i class="mr-2 fas fa-pen"></i>編輯管理
+            <button class="mt-1 edit-page-btn" type="button"><i class="mr-2 fas fa-pen"></i>編輯管理
             </button>
           </a>
           <a href="/users/logout">
-            <button class="edit-page-btn" type="button"><i class="mr-2 fas fa-sign-out-alt"></i>登出
+            <button class="mt-1 edit-page-btn" type="button"><i class="mr-2 fas fa-sign-out-alt"></i>登出
             </button>
           </a>
         </div>

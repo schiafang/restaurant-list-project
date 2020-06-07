@@ -1,6 +1,24 @@
 # Ｍy Restaurant List! 
 ### Add your favorite restaurants
-#### You can create and update restaurant list now!
+#### Create your restaurant list now!
+
+## NEW Update!!!
+### 新增註冊與登入功能
+
+管理專屬於你的餐廳清單！
+
+使用以下帳號密碼試用，或是註冊一組新帳號開始使用
+```
+ user1@example.com
+ 12345678
+```
+```
+user2@example.com
+12345678
+```
+
+[try My restaurant list now](https://arcane-brushlands-46620.herokuapp.com/users/login)
+
 
 
 ## **Features**

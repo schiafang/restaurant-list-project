@@ -34,6 +34,9 @@ app.use((req, res, next) => {
   res.locals.user = req.user
   res.locals.warningMsg = req.flash('warningMsg')
   res.locals.successMsg = req.flash('successMsg')
+  const arr = req.session.flash.error
+  if (arr) res.locals.loginError = arr.pop()
+
   next()
 })
 app.use(route)
