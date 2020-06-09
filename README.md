@@ -68,7 +68,7 @@ user2@example.com
 [MongoDB](https://www.mongodb.com/)
 
 
-## Installation
+## Installation to Local
 
 [Download](https://github.com/schiafang/restaurant-list-project/archive/master.zip) or clone repository to your local computer.
 ```
@@ -79,9 +79,23 @@ Install express
 $ npm i express
 ```
 
+Add .env to use Facebook passport
+1. Login [Facebook Developers](https://developers.facebook.com/) 
+2. Add your application: **Facebook Login**
+3. add .env file on ./
+4. Fill in the following information in .env
+
+```
+FACEBOOK_APP_ID=<Your Facebook app ID>
+FACEBOOK_APP_SECRET=<Your Facebook app secret>
+FACEBOOK_CALLBACK=<Your Facebook callback url>
+SESSION_SECRET=<Your session secret>
+PORT=3000
+```
+
 Require seeder
 ```
-$ npm run seed ( ^C exit)
+$ npm run seed
 ```
 
 Execute
