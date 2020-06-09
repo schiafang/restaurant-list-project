@@ -159,8 +159,11 @@ header {
 }
 
 /* login/out page */
+.user-content {
+  height: 800px;
+}
 .login-form {
-  margin-top: 70px;
+  margin-top: 150px;
   margin-bottom: 30px;
   background-color: rgb(240, 240, 240);
   border-radius: 5px;
